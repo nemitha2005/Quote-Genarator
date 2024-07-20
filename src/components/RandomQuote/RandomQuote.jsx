@@ -9,6 +9,8 @@ const RandomQuote = () => {
     text: "Did you know that the first computer programmer?",
     author: "Ada Lovelace",
   });
+  const [loading, setLoading] = useState(false);
+  const [fadeIn, setFadeIn] = useState(true);
 
   useEffect(() => {
     async function fetchQuotes() {
@@ -22,8 +24,14 @@ const RandomQuote = () => {
   }, []);
 
   const random = () => {
-    const select = quotes[Math.floor(Math.random() * quotes.length)];
-    setQuote(select);
+    setLoading(true);
+    setFadeIn(false);
+    setTimeout(() => {
+      const select = quotes[Math.floor(Math.random() * quotes.length)];
+      setQuote(select);
+      setLoading(false);
+      setFadeIn(true);
+    }, 500);
   };
 
   const twitter = () => {
@@ -33,15 +41,21 @@ const RandomQuote = () => {
   };
 
   return (
-    <div className="container">
-      <div className="quote">{quote.text}</div>
-      <div>
-        <div className="line"></div>
-        <div className="bottom">
-          <div className="author">- {quote.author.split(",")[0]}</div>
-          <div className="icons">
-            <img src={reload_icon} onClick={random} alt="reload" />
-            <img src={twitter_icon} onClick={twitter} alt="twitter" />
+    <div className="background">
+      <div className="container">
+        <div className={`quote ${fadeIn ? 'fade-in' : ''}`}>{quote.text}</div>
+        <div>
+          <div className="line"></div>
+          <div className="bottom">
+            <div className={`author ${fadeIn ? 'fade-in' : ''}`}>- {quote.author.split(",")[0]}</div>
+            <div className="icons">
+              <button className={`icon-button ${loading ? 'loading' : ''}`} onClick={random}>
+                <img src={reload_icon} alt="reload" />
+              </button>
+              <button className="icon-button" onClick={twitter}>
+                <img src={twitter_icon} alt="twitter" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
