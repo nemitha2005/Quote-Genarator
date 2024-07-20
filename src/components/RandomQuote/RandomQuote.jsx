@@ -1,4 +1,3 @@
-// src/components/RandomQuote.js
 import React, { useState, useEffect } from "react";
 import "./RandomQuote.css";
 import twitter_icon from "../assets/icons/twitter.png";

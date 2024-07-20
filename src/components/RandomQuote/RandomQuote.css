@@ -1,4 +1,3 @@
-/* src/components/RandomQuote.css */
 .background {
   position: relative;
   display: flex;
@@ -7,6 +6,7 @@
   height: 100vh;
   background: linear-gradient(135deg, #1a1a1a, #333333);
   font-family: "Roboto", sans-serif;
+  background: transparent;
   overflow: hidden;
 }
 
@@ -127,7 +127,7 @@
 @media (max-width: 480px) {
   .container {
     width: 90%;
-    padding: 100px;
+    padding: 120px;
   }
 
   .quote {
