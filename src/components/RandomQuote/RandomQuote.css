@@ -127,7 +127,7 @@
 @media (max-width: 480px) {
   .container {
     width: 90%;
-    padding: 20px;
+    padding: 100px;
   }
 
   .quote {
