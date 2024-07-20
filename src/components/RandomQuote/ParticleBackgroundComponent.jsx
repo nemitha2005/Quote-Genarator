@@ -1,28 +1,68 @@
+// src/components/ParticleBackgroundComponent.js
 import React from "react";
-import ParticleBackground from "react-particle-backgrounds";
+import Particles from "react-tsparticles";
 
 const ParticleBackgroundComponent = () => {
-  const settings = {
-    particle: {
-      particleCount: 100,
-      color: "#ffffff",
-      minSize: 2,
-      maxSize: 4,
-    },
-    velocity: {
-      directionAngle: 0,
-      directionAngleVariance: 30,
-      minSpeed: 0.2,
-      maxSpeed: 4,
-    },
-    opacity: {
-      minOpacity: 0,
-      maxOpacity: 0.5,
-      opacityTransitionTime: 5000,
-    },
+  const particlesInit = (main) => {
+    console.log(main);
   };
 
-  return <ParticleBackground settings={settings} />;
+  const particlesLoaded = (container) => {
+    console.log(container);
+  };
+
+  const options = {
+    background: {
+      color: {
+        value: "#1a1a1a",
+      },
+    },
+    fpsLimit: 60,
+    particles: {
+      color: {
+        value: "#ffffff",
+      },
+      links: {
+        color: "#ffffff",
+        distance: 150,
+        enable: true,
+        opacity: 0.5,
+        width: 1,
+      },
+      collisions: {
+        enable: true,
+      },
+      move: {
+        direction: "none",
+        enable: true,
+        outModes: {
+          default: "bounce",
+        },
+        random: false,
+        speed: 1,
+        straight: false,
+      },
+      number: {
+        density: {
+          enable: true,
+          area: 800,
+        },
+        value: 80,
+      },
+      opacity: {
+        value: 0.5,
+      },
+      shape: {
+        type: "circle",
+      },
+      size: {
+        value: { min: 1, max: 5 },
+      },
+    },
+    detectRetina: true,
+  };
+
+  return <Particles id="tsparticles" init={particlesInit} loaded={particlesLoaded} options={options} />;
 };
 
 export default ParticleBackgroundComponent;
