@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./RandomQuote.css";
 import twitter_icon from "../assets/icons/twitter.png";
 import reload_icon from "../assets/icons/reload.png";
+import ParticleBackgroundComponent from "./ParticleBackgroundComponent";
 
 const RandomQuote = () => {
   const [quotes, setQuotes] = useState([]);
@@ -36,20 +37,28 @@ const RandomQuote = () => {
 
   const twitter = () => {
     window.open(
-      `https://twitter.com/intent/tweet?text=${quote.text} - ${quote.author.split(",")[0]}`
+      `https://twitter.com/intent/tweet?text=${quote.text} - ${
+        quote.author.split(",")[0]
+      }`
     );
   };
 
   return (
     <div className="background">
+      <ParticleBackgroundComponent />
       <div className="container">
-        <div className={`quote ${fadeIn ? 'fade-in' : ''}`}>{quote.text}</div>
+        <div className={`quote ${fadeIn ? "fade-in" : ""}`}>{quote.text}</div>
         <div>
           <div className="line"></div>
           <div className="bottom">
-            <div className={`author ${fadeIn ? 'fade-in' : ''}`}>- {quote.author.split(",")[0]}</div>
+            <div className={`author ${fadeIn ? "fade-in" : ""}`}>
+              - {quote.author.split(",")[0]}
+            </div>
             <div className="icons">
-              <button className={`icon-button ${loading ? 'loading' : ''}`} onClick={random}>
+              <button
+                className={`icon-button ${loading ? "loading" : ""}`}
+                onClick={random}
+              >
                 <img src={reload_icon} alt="reload" />
               </button>
               <button className="icon-button" onClick={twitter}>
