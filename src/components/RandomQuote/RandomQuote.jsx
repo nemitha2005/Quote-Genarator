@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./RandomQuote.css";
 import twitter_icon from "../assets/icons/twitter.png";
 import reload_icon from "../assets/icons/reload.png";
-import ParticleBackgroundComponent from "./ParticleBackgroundComponent";
+import ParticleBackgroundComponent from "./ParticleBackground";
 
 const RandomQuote = () => {
   const [quotes, setQuotes] = useState([]);
   const [quote, setQuote] = useState({
-    text: "Did you know that the first computer programmer?",
-    author: "Ada Lovelace",
+    text: "",
+    author: "",
   });
   const [loading, setLoading] = useState(false);
   const [fadeIn, setFadeIn] = useState(true);
@@ -17,7 +17,7 @@ const RandomQuote = () => {
     async function fetchQuotes() {
       const response = await fetch("https://type.fit/api/quotes");
       const data = await response.json();
-      setQuotes(data);
+      setQuotes(data); 
       setQuote(data[Math.floor(Math.random() * data.length)]);
     }
 

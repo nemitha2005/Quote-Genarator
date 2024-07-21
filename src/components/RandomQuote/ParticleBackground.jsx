@@ -1,7 +1,7 @@
 import React from "react";
 import Particles from "react-tsparticles";
 
-const ParticleBackgroundComponent = () => {
+const ParticleBackground = () => {
   const particlesInit = (main) => {
     console.log(main);
   };
@@ -60,4 +60,4 @@ const ParticleBackgroundComponent = () => {
   return <Particles id="tsparticles" init={particlesInit} loaded={particlesLoaded} options={options} />;
 };
 
-export default ParticleBackgroundComponent;
+export default ParticleBackground;
