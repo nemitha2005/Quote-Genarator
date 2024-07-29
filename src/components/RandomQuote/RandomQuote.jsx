@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./RandomQuote.css";
 import twitter_icon from "../assets/icons/twitter.png";
 import reload_icon from "../assets/icons/reload.png";
-import ParticleBackgroundComponent from "./ParticleBackground";
+
 
 const RandomQuote = () => {
   const [quotes, setQuotes] = useState([]);
@@ -45,7 +45,7 @@ const RandomQuote = () => {
 
   return (
     <div className="background">
-      <ParticleBackgroundComponent />
+      
       <div className="container">
         <div className={`quote ${fadeIn ? "fade-in" : ""}`}>{quote.text}</div>
         <div>
